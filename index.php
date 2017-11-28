@@ -1,5 +1,5 @@
 <?php
-require("session.php");
+require_once("session.php");
 ?>
 <head>
 	<!-- Fonts import here -->

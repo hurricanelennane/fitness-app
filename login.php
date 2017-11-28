@@ -1,6 +1,10 @@
 <?php
-require("config.php");
+require_once("config.php");
 session_start();
+if(isset($_SESSION["userID"])){
+	header("location: index.php");
+	exit();
+}
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	$user = $_POST['username'];
 	$pass = $_POST['password'];
@@ -36,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 				<label>Password: </label><input tabindex=2 type="password" name="password"></input><br>
 				<input tabindex=3 type="submit" value="submit"></input></form><br>
 				<p><?php echo $error;?></p>
+				<a href="register.php">No login? Register here.</a>
 			</form>
 		</div>
 	</body>

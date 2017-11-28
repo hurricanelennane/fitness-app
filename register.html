@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Register for GAINZ</title>
+		<script src="js/jquery-3.2.1.js"></script>
+		<script src="js/register.js"></script>
+	</head>
+	<body>
+		<div id="registerDiv">
+			<form name="registerForm">
+				<label>Username: </label><input tabindex=1 type="text" name="username"></input><br>
+				<p id="userWarning" hidden>Username Unavailable</p>
+				<label>Password: </label><input tabindex=2 type="text" name="password"></input><br>
+				<label>Repeat Password: </label><input tabindex=3 type="text" name="rpassword"></input><br>
+				<p id="passWarning" hidden>Passwords do not match</p>
+				<input tabindex=3 type="submit" value="submit"></input>
+			</form>
+		</div>
+	</body>
+</html>
