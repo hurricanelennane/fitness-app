@@ -1,6 +1,8 @@
 <?php
 require_once("config.php");
-session_start();
+if(!isset($_SESSION)){
+	session_start();
+}
 if(isset($_SESSION["userID"])){
 	header("location: index.php");
 	exit();

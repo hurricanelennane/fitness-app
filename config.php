@@ -4,7 +4,7 @@ session_start();
 date_default_timezone_set('America/New_York');
 
 //db credentials
-define("DB_HOST","localhost:8889");
+define("DB_HOST","localhost:3306");
 define("DB_USER","gainz_app");
 define("DB_PASS","i_heart_kmp");
 define("DB_NAME","gainz_db");
