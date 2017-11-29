@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 				<label>Password: </label><input tabindex=2 type="password" name="password"></input><br>
 				<input tabindex=3 type="submit" value="Submit" id='enter'></input></form><br>
 				<p><?php echo $error;?></p>
-				<a id='register' href="register.php">No login? Register here.</a>
+				<a id='register' href="register.html">No login? Register here.</a>
 			</form>
 		</div>
 	</body>

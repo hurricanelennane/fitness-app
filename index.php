@@ -2,12 +2,12 @@
 require_once("session.php");
 ?>
 <head>
-	<script type='text/javascript' src='fitness.js'></script>
 	<!-- Fonts import here -->
 	<link href='https://fonts.googleapis.com/css?family=Bahiana|Barrio|Carter One|Carrois Gothic' rel='stylesheet'>
-	<script src='jquery-3.2.1.js'></script>
+	<script src='js/jquery-3.2.1.js'></script>
+	<script type='text/javascript' src='js/fitness.js'></script>
 	<!-- <script type='text/javascript' src='fitness.js'></script> -->
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<title>Gainz Companion</title>
 </head>
 <body>
