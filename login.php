@@ -29,18 +29,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 ?>
 <html>
 	<head>
+		<link href='https://fonts.googleapis.com/css?family=Kumar One' rel='stylesheet'>
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<title>Login</title>
 	</head>
 	<body>
-		<div id="loginDiv">
-			<h1>Login</h1>
+		<div class='header'>
+			<h1>GAINZ<h1>
+		</div>
+		<div class="loginDiv">
+			<h3>Login</h3>
 			<form action="" method="POST">
-				<label>Username: </label><input tabindex=1 type="text" name="username"></input><br>
+				<label>Username: </label><input tabindex=1 type="text" name="username" placeholder:'Enter Username'></input><br>
 				<label>Password: </label><input tabindex=2 type="password" name="password"></input><br>
-				<input tabindex=3 type="submit" value="submit"></input></form><br>
+				<input tabindex=3 type="submit" value="Submit" id='enter'></input></form><br>
 				<p><?php echo $error;?></p>
-				<a href="register.php">No login? Register here.</a>
+				<a id='register' href="register.php">No login? Register here.</a>
 			</form>
 		</div>
 	</body>
