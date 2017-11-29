@@ -15,4 +15,19 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 	$res = $chkUser->get_result();
 	print(json_encode(!$res -> num_rows>0));
 }
+else if($_SERVER['REQUEST_METHOD']=="POST"){
+	if(!(array_key_exists("username",$_POST) && array_key_exists("password",$_POST)){
+		header("HTTP/1.0 400 Bad Request");
+		print("Bad params");
+		exit();
+	}
+	$user = $_POST['username'];
+	$pass = $_POST['password'];
+	$registerUser = $conn -> prepare("INSERT INTO user(id, username, password, email) VALUES (NULL, ?, ?, NULL)");
+	$resgisterUser -> bind_param("ss",$user, $pass);
+	if(!$registerUser -> execute()){
+		header("HTTP/1.0 500 Internal Server Error");
+		print(json_encode);
+	}
+}
 ?>
