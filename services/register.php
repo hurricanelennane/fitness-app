@@ -16,18 +16,22 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 	print(json_encode(!$res -> num_rows>0));
 }
 else if($_SERVER['REQUEST_METHOD']=="POST"){
-	if(!(array_key_exists("username",$_POST) && array_key_exists("password",$_POST)){
+	$params = json_decode(file_get_contents('php://input'), true);
+	if(!(array_key_exists("username",$params) && array_key_exists("password",$params))){
 		header("HTTP/1.0 400 Bad Request");
 		print("Bad params");
 		exit();
 	}
-	$user = $_POST['username'];
-	$pass = $_POST['password'];
+	$user = $params['username'];
+	$pass = password_hash($params['password'],PASSWORD_DEFAULT);
 	$registerUser = $conn -> prepare("INSERT INTO user(id, username, password, email) VALUES (NULL, ?, ?, NULL)");
-	$resgisterUser -> bind_param("ss",$user, $pass);
+	$registerUser -> bind_param("ss",$user, $pass);
 	if(!$registerUser -> execute()){
 		header("HTTP/1.0 500 Internal Server Error");
-		print(json_encode);
+		print(json_encode("db Error"));
+	}
+	else{
+		print(json_encode(true));
 	}
 }
 ?>

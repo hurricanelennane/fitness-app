@@ -20,9 +20,9 @@ require_once("session.php");
 		<div class='dropdown'>
 		<li class="main-btn"><button class='dropbtn' onclick="openMenu()">Gainz</button></li>
 			<div class='dropdown-content' id='myDropdown'>
-				<a href='#'>Link 1</a>
-				<a href='#'>Link 2</a>
-				<a href='#'>Link 3</a>
+				<a href='#'>Search Exercises</a>
+				<a href='#'>My Workouts</a>
+				<a href='#'>Logout</a>
 			</div>
 		</div>
 	</ul>
