@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 <html>
 	<head>
 		<link href='https://fonts.googleapis.com/css?family=Kumar One' rel='stylesheet'>
-		<link rel="stylesheet" type="text/css" href="main.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<title>Login</title>
 	</head>
 	<body>

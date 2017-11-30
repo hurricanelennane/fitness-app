@@ -1,13 +1,13 @@
-a{
+#main-container{
+	overflow:auto;
+}
+
+a.dropdown{
 	text-decoration: none;
 	color: #c7133b;
 }
 
-a:visited{
-	color: #efc165;
-}
-
-a:hover{
+a.dropdown:hover{
 	color: #f8992d;
 }
 
