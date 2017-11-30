@@ -1,0 +1,23 @@
+.modal-bg{
+	height: 100%;
+	width:	100%;
+	background-color: rgba(0,0,0,0.4);
+	display: none;
+	position:fixed;
+	z-index:1;
+	left:0;
+	top:0;
+	overflow: auto;
+}
+.modal-content{
+	margin:auto;
+	background-color: white;
+	width: 500px;
+	height: 500px;
+	text-align:center;
+	vertical-align:center;
+	line-height: 500px
+}
+.modal-content > p{
+	font-size: 30px;
+}
