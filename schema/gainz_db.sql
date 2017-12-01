@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 30, 2017 at 08:08 PM
+-- Generation Time: Dec 01, 2017 at 07:12 AM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.8
 
@@ -27,10 +27,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `exercise` (
-  `eid` int(3) NOT NULL,
-  `exercise_name` varchar(20) NOT NULL,
+  `eid` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
   `description` text NOT NULL,
-  `sets` int(2) NOT NULL
+  `reps` int(11) NOT NULL,
+  `duration` int(11) NOT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -60,11 +62,9 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`) VALUES
 --
 
 CREATE TABLE `userworkout` (
-  `uwid` int(3) NOT NULL,
-  `uid` int(3) NOT NULL,
-  `wid` int(3) NOT NULL,
-  `workout_date` date NOT NULL,
-  `time` time NOT NULL,
+  `uid` int(11) NOT NULL,
+  `wid` int(11) NOT NULL,
+  `date_added` date NOT NULL,
   `active_flag` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -75,10 +75,23 @@ CREATE TABLE `userworkout` (
 --
 
 CREATE TABLE `workout` (
-  `wid` int(3) NOT NULL,
-  `workout_name` varchar(20) NOT NULL,
-  `description` text NOT NULL
+  `wid` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `description` text NOT NULL,
+  `intensity` enum('light','mild','intense') NOT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `workout`
+--
+
+INSERT INTO `workout` (`wid`, `name`, `description`, `intensity`, `date_created`) VALUES
+(7, 'Test', 'Test', 'mild', '2017-12-01 04:27:52'),
+(8, 'Test', 'Test', 'mild', '2017-12-01 04:28:01'),
+(9, 'Test', 'Test', 'mild', '2017-12-01 04:28:33'),
+(10, 'Hello World', 'Test', 'mild', '2017-12-01 05:47:46'),
+(11, 'Test', 'Test', 'mild', '2017-12-01 04:29:55');
 
 -- --------------------------------------------------------
 
@@ -87,10 +100,9 @@ CREATE TABLE `workout` (
 --
 
 CREATE TABLE `workoutexercise` (
-  `weid` int(3) NOT NULL,
-  `wid` int(3) NOT NULL,
-  `eid` int(3) NOT NULL,
-  `reps` int(2) NOT NULL
+  `wid` int(11) NOT NULL,
+  `eid` int(11) NOT NULL,
+  `sets` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -113,7 +125,8 @@ ALTER TABLE `user`
 -- Indexes for table `userworkout`
 --
 ALTER TABLE `userworkout`
-  ADD PRIMARY KEY (`uwid`);
+  ADD PRIMARY KEY (`uid`,`wid`),
+  ADD UNIQUE KEY `uwid` (`active_flag`);
 
 --
 -- Indexes for table `workout`
@@ -125,7 +138,7 @@ ALTER TABLE `workout`
 -- Indexes for table `workoutexercise`
 --
 ALTER TABLE `workoutexercise`
-  ADD PRIMARY KEY (`weid`) USING BTREE;
+  ADD PRIMARY KEY (`wid`,`eid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -135,27 +148,17 @@ ALTER TABLE `workoutexercise`
 -- AUTO_INCREMENT for table `exercise`
 --
 ALTER TABLE `exercise`
-  MODIFY `eid` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `userworkout`
---
-ALTER TABLE `userworkout`
-  MODIFY `uwid` int(3) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `workout`
 --
 ALTER TABLE `workout`
-  MODIFY `wid` int(3) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `workoutexercise`
---
-ALTER TABLE `workoutexercise`
-  MODIFY `weid` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `wid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
