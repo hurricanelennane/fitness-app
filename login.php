@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<title>Login</title>
 	</head>
-	<body>
+	<body id='login-body'>
 		<div class='header'>
 			<h1>GAINZ<h1>
 		</div>

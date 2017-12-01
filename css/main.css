@@ -127,7 +127,7 @@ ul.navbar> li > a.active{
 	font-family: 'Georgia';
 	font-size: 2em;
 	color: black;
-	text-shadow: 0 0 10px rgba(0,0,0,0.3);
+	text-shadow: 0 0 8px #ffffff;
 	letter-spacing:1px;
 	text-align:center;
 }
@@ -138,7 +138,7 @@ ul.navbar> li > a.active{
 	font-family: 'Kumar One'
 }
 
-body {
+#login-body {
 	background-color: rgb(0, 132, 255);
 }
 
