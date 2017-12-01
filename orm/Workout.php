@@ -2,8 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once("../config.php");
+require_once("Exercise.php");
 
-class Workout{
+class Workout implements JsonSerializable{
 	private $id;
 	private $name;
 	private $description;
@@ -37,7 +38,10 @@ class Workout{
 		if(!$getByID -> execute())
 			return false;
 
-		$res = $getByID -> get_result() -> fetch_assoc();
+		$res = $getByID -> get_result();
+		if($res -> num_rows == 0)
+			return false;
+		$res = $res -> fetch_assoc();
 		return new Workout($id, $res["name"], $res["description"], $res["intensity"], $res["date_created"]);
 	}
 	private function __construct($id, $name, $description, $intensity, $date_created){
@@ -64,6 +68,9 @@ class Workout{
 		if(! $update -> execute())
 			return false;
 		return true;
+	}
+	public function getExercises(){
+		return Exercise::getExercisesInWorkout($this);
 	}
 	public function setName($name){
 		$this -> name = $name;
@@ -92,13 +99,14 @@ class Workout{
 	public function getDateCreated(){
 		return $this -> date_created;
 	}  
-	public function getJSON(){
-		$obj_array = array("id" => $this -> id,
-		                   "name" => $this -> name,
-		                   "description" => $this -> description,
-		                   "intensity" => $this -> intensity,
-		                   "date_created" => $this -> date_created);
-		return json_encode($obj_array);
+	public function jsonSerialize(){
+	    return    ["id" => $this -> id,
+	               "name" => $this -> name,
+	               "description" => $this -> description,
+	               "intensity" => $this -> intensity,
+	               "date_created" => $this -> date_created];
 	}
 }
+$test = Workout::getByID(7);
+echo json_encode($test -> getExercises());
 ?>
