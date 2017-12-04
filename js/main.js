@@ -2,8 +2,8 @@ var templates = {
   exercises : {navbar: "<li><a class='active' href='javascript:void(0)'>Exercises</a></li>\
                  <li><a href='javascript:void(0)'>Workouts</a></li>"},
   dashboard : {navbar: "<li><a class='active' href='javascript:void(0)'>Home</a></li>\
-                 <li><a href='javascript:void(0)'>About</a></li>\
-                 <li><a href='javascript:void(0)'>Contact</a></li>"}
+                 <li><a href='about.html'>About</a></li>\
+                 <li><a href='contact.html'>Contact</a></li>"}
 
 };
 
@@ -13,6 +13,7 @@ function openMenu() {
 
 function changeView(view){
   $(".navbar").children().remove("li");
+  $("#main-container").empty();
   $(".navbar").prepend(templates[view].navbar);
 }
 
