@@ -186,3 +186,21 @@ input {
 h1 {
 	text-shadow: 0 0 8px #ffffff;
 }
+
+#about {
+	text-align: center;
+	padding: 20px;
+	font-size: 3em;
+}
+
+#contact {
+	text-align: center;
+	padding: 20px;
+	font-size: 3em;
+}
+
+#Welcome {
+	text-align: center;
+	padding: 20px;
+	font-size: 3em;
+}
