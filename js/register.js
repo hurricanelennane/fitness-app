@@ -9,7 +9,7 @@ $(document).ready(function(){
 		    $.ajax({
 	            cache: false,
 	            type: "GET",
-	            url: "http://localhost:8888/services/register.php",
+	            url: "http://localhost:8888/services/register.php/",
 	            data: {tentName: $(this).val()},
 	            contentType: "application/json; charset=utf-8",
 	            success: function (resp) {
@@ -50,7 +50,7 @@ $(document).ready(function(){
 			   $.ajax({
 	            cache: false,
 	            type: "POST",
-	            url: "http://localhost:8888/services/register.php",
+	            url: "http://localhost:8888/services/register.php/",
 	            data: JSON.stringify({username: userbox.val(),
 	        		   password: passbox.val()}),
 	            contentType: "application/json; charset=utf-8",

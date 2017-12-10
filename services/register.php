@@ -16,7 +16,8 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 	print(json_encode(!$res -> num_rows>0));
 }
 else if($_SERVER['REQUEST_METHOD']=="POST"){
-	$params = json_decode(file_get_contents('php://input'), true);
+	$params = json_decode(file_get_contents('php://input'),true);
+	//$params = $_POST;
 	if(!(array_key_exists("username",$params) && array_key_exists("password",$params))){
 		header("HTTP/1.0 400 Bad Request");
 		print("Bad params");

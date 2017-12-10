@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 		$row = $res -> fetch_assoc();
 		if(password_verify($pass, $row["password"])){
 			header("location: index.php");
-			$_SESSION["userID"] = $row["id"];
+			$_SESSION["userID"] = (int)$row["id"];
 		}
 		else{
 			$error = "Password invalid";
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	<head>
 		<link href='https://fonts.googleapis.com/css?family=Kumar One' rel='stylesheet'>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<title>Login</title>
+		<title>Gainz -- Login</title>
 	</head>
 	<body>
 		<div class='header'>

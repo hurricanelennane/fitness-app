@@ -8,12 +8,13 @@ class Exercise implements JsonSerializable{
 	private $reps;
 	private $duration;
 	private $date_created;
+	private $created_by;
 
-	public static function create($name, $description, $reps, $duration){
+	public static function create($name, $description, $reps, $duration, $creator){
 		$conn = $GLOBALS["conn"];
-		$insExercise = $conn -> prepare("INSERT INTO exercise(eid, name, description, reps, duration, date_created)
-			VALUES(NULL,?,?,?,?,NULL)");
-		if(! $insExercise -> bind_param("ssii", $name, $description, $reps, $duration))
+		$insExercise = $conn -> prepare("INSERT INTO exercise(eid, name, description, reps, duration, date_created, created_by)
+			VALUES(NULL,?,?,?,?,NULL,?)");
+		if(! $insExercise -> bind_param("ssiii", $name, $description, $reps, $duration, $creator))
 			return false;
 		if(! $insExercise -> execute())
 			return false;
@@ -40,7 +41,7 @@ class Exercise implements JsonSerializable{
 		if($res -> num_rows ==0)
 			return false;
 		$res = $res -> fetch_assoc();
-		return new Exercise($id, $res["name"], $res["description"], $res["reps"], $res["duration"], $res["date_created"]);
+		return new Exercise($id, $res["name"], $res["description"], $res["reps"], $res["duration"], $res["date_created"], $res["created_by"]);
 	}
 
 	public static function getExercisesInWorkout($workout){
@@ -57,18 +58,19 @@ class Exercise implements JsonSerializable{
 		$res = $getExercises -> get_result();
 		$out = array();
 		while($row = $res -> fetch_assoc()){
-			$out[] = new Exercise($row["eid"], $row["name"], $row["description"], $row["reps"], $row["duration"], $row["date_created"]);
+			$out[] = new Exercise($row["eid"], $row["name"], $row["description"], $row["reps"], $row["duration"], $row["date_created"], $row["created_by"]);
 		}
 		return $out;
 	}
 
-	private function __construct($id, $name, $description, $reps, $duration, $date_created){
+	private function __construct($id, $name, $description, $reps, $duration, $date_created, $created_by){
 		$this -> id = $id;
 		$this -> name = $name;
 		$this -> description = $description;
 		$this -> reps = $reps;
 		$this -> duration = $duration;
 		$this -> date_created = $date_created;
+		$this -> created_by = $created_by;
 	}
 
 	public function delete(){
@@ -125,6 +127,9 @@ class Exercise implements JsonSerializable{
 	}
 	public function getDateCreated(){
 		return $this -> date_created;
+	}
+	public function getCreator(){
+		return $this -> created_by;
 	}
 	
 	public function jsonSerialize(){
