@@ -13,7 +13,7 @@ require_once("session.php");
 <body>
 	<div>
 	<ul class="navbar">
-		<li><a class="active" href="index.html">Home</a></li>
+		<li><a class="active" href="index.php">Home</a></li>
 		<li><a href="about.html">About</a></li>
 		<li><a href="contact.html">Contact</a></li>
 		<div class='dropdown'>
