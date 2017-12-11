@@ -1,12 +1,45 @@
 #main-container{
 	overflow:auto;
+	height:100%;
+	width:100%;
+	display:block;
+	margin-top: 52px;
+	margin-right: 0px;
+	margin-left: 0px;
 }
-
+div.workout{
+	background-color:#767676;
+	border-radius:5px;
+	height:50px;
+	width:100%;
+	display:flex;
+	align-items:center;
+	margin-bottom:5px;
+}
+span.wtext{
+	padding-right:70px;
+	color:white;
+	font-family:Barlow Semi Condensed;
+	font-size:20px;
+}
+button.addwrkt{
+	margin-left:auto;
+	flex-direction:column;
+	margin-right:30px;
+	font-size:20px;
+	padding:5 10 5 10;
+	background-color:#E1E1E1;
+}
+span.wtext:first-child{
+	padding-left:30px;
+}
 a.dropdown{
 	text-decoration: none;
 	color: #c7133b;
 }
-
+button.add{
+	align:left;
+}
 a.dropdown:hover{
 	color: #f8992d;
 }
@@ -27,10 +60,17 @@ hr{
 	border-color: #f2dfcd;
 	border-radius: 25px;
 }
-
+div.space{
+	top:0;
+	left:0;
+	width:100%;
+	height: 52px;
+	position:absolute;
+}
 ul.navbar{
 	list-style-type: none;
 	margin: 0;
+	z-index:1;
 	padding: 0;
 	top: 0;
 	left:0;

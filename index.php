@@ -3,7 +3,9 @@ require_once("session.php");
 ?>
 <head>
 	<!-- Fonts import here -->
-	<link href='https://fonts.googleapis.com/css?family=Bahiana|Barrio|Carter One|Carrois Gothic' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Bahiana|Barrio|Carter One|Carrois Gothic|Barlow Semi Condensed
+
+' rel='stylesheet'>
 	<script src='js/jquery-3.2.1.js'></script>
 	<script type='text/javascript' src='js/main.js'></script>
 	<!-- <script type='text/javascript' src='fitness.js'></script> -->
@@ -28,5 +30,8 @@ require_once("session.php");
 	</ul>
 	</div>
 	<div id="main-container">
+		<div class="workout">
+			<span class="wtext">The Holy Smacker</span><span class="wtext">This will really get yer ass done, son.</span><button class="addwrkt">Add</button>
+		</div>
 	</div>
 </body>
