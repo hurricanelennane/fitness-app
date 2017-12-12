@@ -2,7 +2,8 @@ function createWorkoutView(workout){
   return $($.parseHTML(' <div class="workout" id="w'+workout.id+'"></div>')).append(
   $.parseHTML('<span class="wtext">'+workout.name+'</span>')).append(
   $.parseHTML('<span class="wtext">'+workout.description+'</span>')).append(
-  $.parseHTML('<button class="options">Options</button>'));
+  $.parseHTML('<button class="options">Options</button>')).append(
+  $.parseHTML('<div class="dropdown-content"></div>'));
 }
 var templates = {
   exercises : {navbar: "<li><a class='nav active' href='javascript:void(0)'>Exercises</a></li>\
