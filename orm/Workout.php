@@ -28,7 +28,9 @@ class Workout implements JsonSerializable{
 				$datestamp = $getNewDate -> get_result() -> fetch_assoc()["date_created"];
 			}
 		}
-		return new Workout($resID, $name, $description, $intensity, $datestamp, $creator);
+		$workout = new Workout($resID, $name, $description, $intensity, $datestamp, $creator);
+		$workout -> linkToUser($creator);
+		return $workout;
 	}
 	public static function getByID($id){
 		$conn = $GLOBALS["conn"];
@@ -100,6 +102,15 @@ class Workout implements JsonSerializable{
 		if(! $update -> execute())
 			return false;
 		return true;
+	}
+	public function isLinked($uid){
+		$conn = $GLOBALS["conn"];
+		$isLinked = $conn -> prepare("SELECT * FROM userworkout WHERE uid = ? AND wid =?");
+		if(! $isLinked -> bind_param("ii", $uid, $this -> id))
+			return false;
+		if(! $isLinked -> execute())
+			return false;
+		return $isLinked -> get_result() -> num_rows > 0;
 	}
 	public function linkToUser($uid){
 		$conn = $GLOBALS["conn"];

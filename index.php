@@ -8,6 +8,7 @@ require_once("session.php");
 ' rel='stylesheet'>
 	<script src='js/jquery-3.2.1.js'></script>
 	<script type='text/javascript' src='js/main.js'></script>
+	<script type ="text/javascript" src='js/pagedef.js'></script>
 	<!-- <script type='text/javascript' src='fitness.js'></script> -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<title>Gainz Companion</title>
@@ -15,11 +16,11 @@ require_once("session.php");
 <body>
 	<div>
 	<ul class="navbar">
-		<li><a class="active" href="index.php">Home</a></li>
-		<li><a href="about.html">About</a></li>
-		<li><a href="contact.html">Contact</a></li>
+		<li><a class="nav active" href="index.php">Home</a></li>
+		<li><a class="nav" href="about.html">About</a></li>
+		<li><a class="nav" href="javascript:void(0)">Contact</a></li>
 		<div class='dropdown'>
-		<li class="main-btn"><button class='dropbtn' onclick="openMenu()">Gainz</button></li>
+			<li class="main-btn"><button id='main-drop' onclick="openMenu()">Gainz</button></li>
 			<div class='dropdown-content' id='myDropdown'>
 				<a href="javascript: void(0)" class="dropdown" onclick="changeView('dashboard')">Dashboard</a>
 				<a href="javascript: void(0)" class="dropdown" onclick="changeView('exercises')">Search Exercises</a>
@@ -30,8 +31,5 @@ require_once("session.php");
 	</ul>
 	</div>
 	<div id="main-container">
-		<div class="workout">
-			<span class="wtext">The Holy Smacker</span><span class="wtext">This will really get yer ass done, son.</span><button class="addwrkt">Add</button>
-		</div>
 	</div>
 </body>
