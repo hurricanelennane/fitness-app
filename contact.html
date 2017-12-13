@@ -16,7 +16,7 @@
             <li><a href="about.html">About</a></li>
             <li><a class='active' href="contact.html">Contact</a></li>
             <div class='dropdown'>
-            <li class="main-btn"><button id='main-drop'>Gainz</button></li>
+            <li class="main-btn"><button id='main-drop' onclick="openMenu()">Gainz</button></li>
                 <div class='dropdown-content' id='myDropdown'>
                     <a href="javascript: void(0)" class="dropdown" onclick="changeView('dashboard')">Dashboard</a>
                     <a href="javascript: void(0)" class="dropdown" onclick="changeView('exercises')">Search Exercises</a>
@@ -26,8 +26,49 @@
             </div>
         </ul>
         </div>
-        <div id="main-container">
+        <div class="main-container" id='contact-section'>
             <h1 id='contact'>Contact Us</h1>
+            <form name='contact-form' method='POST' action='send_form_email.php'>
+                <table width='450px'>
+                    <tr>
+                        <td valign='top'>
+                            <label for='first-name'>First Name *</label>
+                        </td>
+                        <td valign='top'>
+                            <input type='text' name='first-name' maxlength='50' size='30'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign='top'>
+                            <label for='last-name'>Last Name *</label>
+                        </td>
+                        <td valign='top'>
+                            <input type='text' name='last-name' maxlength='50' size='30'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign='top'>
+                            <label for='email'>Email *</label>
+                        </td>
+                        <td valign='top'>
+                            <input type='text' name='email' maxlength='80' size='30'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign='top'>
+                            <label for='comments'>Comments *</label>
+                        </td>
+                        <td valign='top'>
+                            <textarea name='comments' maxlength='1000' cols='25' rows='6'></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' style='text-align:center'>
+                            <input type='submit' value='Submit'>
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </body>
 </html>
