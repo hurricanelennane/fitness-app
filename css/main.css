@@ -24,10 +24,9 @@ span.wtext{
 }
 button.options{
 	margin-left:auto;
+	margin-right:20px;
 	flex-direction:column;
-	margin-right:30px;
 	font-size:20px;
-	padding:5 10 5 10;
 	background-color:#E1E1E1;
 }
 span.wtext:first-child{
@@ -129,6 +128,9 @@ ul.navbar> li > a.active{
 	background-color: #0383a3;
 	outline: none;
 }
+div.list-item{
+	margin-left:auto;
+}
 
 .dropdown-content {
 	display: none;
@@ -138,7 +140,6 @@ ul.navbar> li > a.active{
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
 }
-
 .dropdown-content a {
 	color: black;
 	padding: 12px 16px;
@@ -182,7 +183,7 @@ ul.navbar> li > a.active{
 	background-color: rgb(0, 132, 255);
 }
 
-input { 
+input.login { 
 	width: 100%; 
 	margin-bottom: 10px; 
 	background: rgba(9, 64, 182, 0.3);
@@ -243,4 +244,51 @@ h1 {
 	text-align: center;
 	padding: 20px;
 	font-size: 3em;
+}
+
+/* Create Modal Layout */
+
+
+/* Register Page */
+.modal-bg{
+	height: 100%;
+	width:	100%;
+	background-color: rgba(0,0,0,0.4);
+	display: none;
+	position:fixed;
+	z-index:1;
+	left:0;
+	top:0;
+	overflow: auto;
+}
+.modal-content{
+	margin:auto;
+	margin-top:75px;
+	background-color: white;
+	width: 75%;
+	height: 75%;
+	text-align:center;
+	vertical-align:center;
+}
+.modal-content > p{
+	font-size: 30px;
+}
+
+#registerDiv {
+	text-align: center;
+	padding-top: 80px;
+}
+#registerModal{
+	line-height:500px;
+}
+#registerHeader {
+	text-align: center;
+	font-size: 4em;
+	font-family: 'Georgia';
+	text-shadow: 0 0 8px #ffffff;
+}
+
+#registerSubmit:hover {
+	background-color: rgb(0, 89, 255);
+	text-shadow: 0 0 8px #000000;
 }

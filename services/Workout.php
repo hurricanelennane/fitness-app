@@ -41,9 +41,8 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 	}
 }
 else if ($_SERVER["REQUEST_METHOD"] == "POST"){
-	$params = json_decode(file_get_contents('php://input'));
-	if(!$params)
-		$params = $_POST;
+	$stdin = file_get_contents('php://input');
+	$params = $stdin == ""? $_POST:json_decode($stdin,true);
 	if(count($path) > 1 && $path[1] != ""){
 		$workout = Workout::getByID((int)$path[1]);
 		if(!$workout){
@@ -107,8 +106,10 @@ else if ($_SERVER["REQUEST_METHOD"] == "OPTIONS"){
 			$options[] = "REMOVE";
 		else
 			$options[] = "ADD";
-		if($workout -> getCreatedBy() == $_SESSION["userID"])
-			$options[] = ["DELETE","UPDATE"];
+		if($workout -> getCreatedBy() == $_SESSION["userID"]){
+			$options[] = "DELETE";
+			$options[] = "UPDATE";
+		}
 		print(json_encode($options));
 		exit();
 	}else{

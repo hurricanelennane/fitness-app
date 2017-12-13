@@ -18,10 +18,10 @@ require_once("session.php");
 	<ul class="navbar">
 		<li><a class="nav active" href="index.php">Home</a></li>
 		<li><a class="nav" href="about.html">About</a></li>
-		<li><a class="nav" href="javascript:void(0)">Contact</a></li>
+		<li><a class="nav" href="contact.html">Contact</a></li>
 		<div class='dropdown'>
-			<li class="main-btn"><button id='main-drop' onclick="openMenu()">Gainz</button></li>
-			<div class='dropdown-content' id='myDropdown'>
+			<li class="main-btn"><button id='main-drop'>Gainz</button></li>
+			<div class="dropdown-content" id='myDropdown'>
 				<a href="javascript: void(0)" class="dropdown" onclick="changeView('dashboard')">Dashboard</a>
 				<a href="javascript: void(0)" class="dropdown" onclick="changeView('exercises')">Search Exercises</a>
 				<a href="javascript: void(0)" class="dropdown">My Workouts</a>
@@ -29,6 +29,17 @@ require_once("session.php");
 			</div>
 		</div>
 	</ul>
+	</div>
+	<div class="modal-bg" id="createModal">
+			<div class="modal-content">
+				<form name="createForm">
+					<label>Workout Name: </label><input tabindex=1 type="text" name="name"></input><br>
+					<p id="nameWarning" hidden>Name Must be at least one character</p>
+					<label>Workout Description: </label><input tabindex=2 type="text" name="description"></input><br>
+					<label>Workout Intensity: </label><input tabindex=3 type="text" name="intensity"></input><br>
+					<input tabindex=3 type="submit" value="Confirm" id='createSubmit'></input>
+				</form>
+			</div>
 	</div>
 	<div id="main-container">
 	</div>

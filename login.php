@@ -40,9 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 		<div class="loginDiv">
 			<h3>Login</h3>
 			<form action="" method="POST">
-				<label>Username: </label><input tabindex=1 type="text" name="username" placeholder:'Enter Username'></input><br>
-				<label>Password: </label><input tabindex=2 type="password" name="password"></input><br>
-				<input tabindex=3 type="submit" value="Submit" id='enter'></input></form><br>
+				<label>Username: </label><input class="login" tabindex=1 type="text" name="username" placeholder:'Enter Username'></input><br>
+				<label>Password: </label><input class="login" tabindex=2 type="password" name="password"></input><br>
+				<input class="login" tabindex=3 type="submit" value="Submit" id='enter'></input></form><br>
 				<p><?php echo $error;?></p>
 				<a id='register' href="register.html">No login? Register here.</a>
 			</form>
